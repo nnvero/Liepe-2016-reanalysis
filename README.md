@@ -7,9 +7,13 @@ and unzip it under [`data/`](data/)
 
 the structure should look like
 ```
-data/  
-    C1R/*
-    immunopeptidome/*
-    lysate/*
-    T2/*
+data/
+    raw/
+        C1R/*
+        immunopeptidome/*
+        lysate/*
+        T2/*
+    mzml/
+        GR_LCL/*
+    mylonas-et-al/supplementary6.xlsx
 ```
