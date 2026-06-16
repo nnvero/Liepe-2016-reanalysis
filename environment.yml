@@ -1,0 +1,13 @@
+name: proteomics
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pyteomics
+  - openpyxl
+  - lxml
+  - pandas
+  - pip
+  - numpy
+  - matplotlib
+  - ipykernel
