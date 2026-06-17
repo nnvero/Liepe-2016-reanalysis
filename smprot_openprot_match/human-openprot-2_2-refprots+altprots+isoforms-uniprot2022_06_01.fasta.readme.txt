@@ -1,0 +1,122 @@
+OpenProt database
+------------------
+OpenProt release 2_2 - February  6 2025
+
+OpenProt enables improved mapping of the proteome. In addition to currently annotated
+CDSs and proteins, OpenProt displays the sequence, functional annotation and expression
+evidence of previously hidden alternative ORFs (AltORFs) and their corresponding alternative proteins (AltProts).
+
++ File: human-openprot-2_2-refprots+altprots+isoforms-uniprot2022_06_01.fasta
++ Species: Homo sapiens
++ RefProts: Uniprot release uniprot2022_06_01
++ Annotation: GRCh38.106,GRCh38.p13
++ This file contains all predicted AltProts and Isoforms and all RefProt sequences, i.e., non-redundant protein sequences from UniProtKB / SwissProt, Ensembl and NCBI RefSeq annotations with or without experimental evidence.
++ File type: fasta
+
+
+### Protein FASTA Sequence Header Lines
+
+General format:
+
+```
+>Identifier|TX=TaxonomyIdentifier OS=OrganismName GN=GeneName TA= TranscriptAccession PA=ProteinAccession
+```
+
+##### Where: 
+
++ Identifier Proteins annotated in OpenProt have an accession number starting either with IP (for Inferred Protein, i.e. predicted AltProt) or with II (Inferred Isoform, i.e. novel predicted isoform of RefProt). Protein accession numbers for RefProts originate from Ensembl, NCBI RefSeq or UniProtKB annotations. If the "RefProts Included" option is selected, the FASTA file (protein) will contain all RefProt sequences (non-redundant protein sequences from UniProtKB / SwissProt, Ensembl and NCBI RefSeq annotations). When more than one protein accession number is available for one sequence, UniProtKB annotation is used as the Identifier and others are included in the PA field.
+
+
++ TX Taxonomy Identifier.
+
++ OS Organism Name.
+
++ GN Gene Name.
+
++ TA Transcript accession number(s) (from Ensembl and/or NCBI RefSeq annotations).
+
++ PA Protein accession number(s).
+
+
+### Parse rules
+
+Example for MaxQuant :
+
+```
+Identifier parse rule (without quotes)  ">(.*)\|"
+```
+
+```
+Description parse rule (without quotes) ">(.*)"
+```
+
+
+Examples of OpenProt headers:
+
+```
+>IP_066148.1|TX=9606 OS=Human GN=SLC44A5 TA=NM_001130058.1,ENST00000370859 PA=IP_066148.1
+ ^              ^        ^         ^        ^                                  ^             
+Identifier     Taxonomy  Organism  Gene     Transcript accession(s)    Protein accession(s) 
+```
+
+```
+>II_057405.1|TX=9606 OS=Human GN=CPSF3L TA=NM_001256460.1 PA=II_057405.1
+ ^               ^       ^         ^        ^                  ^             
+Identifier  Taxonomy  Organism   Gene Transcript accession(s) Protein accession(s)
+
+```
+
+```
+>ENSP00000484222|TX=9606 OS=Human GN=CDK11B TA=ENST00000611150 PA=ENSP00000484222,A0A087X1I0
+ ^                ^         ^         ^        ^                     ^             
+Identifier        Taxonomy  Organism  Gene Transcript accession(s)  Protein accession(s)
+```
+
+```
+>XP_006711061.1|TX=9606 OS=Human GN=KIAA1751 TA=XM_006710998.1 PA=XP_006711061.1
+ ^                 ^         ^         ^        ^                  ^             
+Identifier      Taxonomy  Organism   Gene Transcript accession(s)  Protein accession(s)
+```
+
+This file can be downloaded [here](http://openprot.org/download/files/2_2/human-openprot-2_2-refprots+altprots+isoforms-uniprot2022_06_01.fasta.zip)
+
+A selection of files that are available for download is available [here](http://openprot.org/p/download)
+
+### Difference between RefProts, AltProts and Isoforms 
+
++ RefProts are proteins translated from annotated CDSs found in transcripts classified as mRNAs.
+
++ AltProts are predicted proteins translated from alternative ORFs (AltORFs) found in transcripts classified as mRNAs or from unannotated AltORFs found in transcripts classified as non-coding RNAs (ncRNAs). Within mRNAs, an altORF may be present in the UTRs or overlapping the annotated CDS in a frameshifted reading frame.
+
++ Isoforms are novel predicted proteins translated from alternative ORFs (AltORFs) found in transcripts classified as mRNAs or from unannotated AltORFs found in transcripts classified as non-coding RNAs (ncRNAs) that share a clear sequence homology with a RefProt from the same gene.
+
+### File Naming Scheme
+
+```
+The files are consistently named following this pattern:
+    <species>-openprot-<version>-<refprots AND/OR altprots and isoforms>-<supporting evidence (MS) (IF ALL -> "all")>-<annotation>-<uniprot YES/NO (IF NO -> EMPTY)>.fasta.zip
+    <species>-openprot-<version>-<refprots AND/OR altprots and isoforms>-<supporting evidence (MS) (IF ALL -> "all")>-<annotation>-<uniprot YES/NO (IF NO -> EMPTY)>.tsv.zip
+
+<species>:       The systematic name of the species.
+<version> :      OpenProt release version
+<refprot AND/OR altprot and isoforms> : Reference and/or alternative proteins
+<supporting evidence (MS)>: Mass spectrometry detection evidence of alternative proteins and isoforms newly annotated in OpenProt
+<annotations>: Genome annotations
+
+fasta (protein) : All files in these directories are FASTA database files with protein sequences
+fasta (dna) : All files in these directories are FASTA database files with DNA sequences
+tsv: All files in these directories are tsv database files
+```
+
+Entries in file: 913497
+
+### DISCLAIMER
+
+We make no warranties regarding the correctness of the data, and accept no
+liability for damages resulting from its use. We cannot provide unrestricted
+permission regarding the use of the data, as some data may be covered by patents
+or other rights.
+
+Any medical or genetic information is provided for research, educational and
+informational purposes only. It is not in any way intended to be used as a
+substitute for professional medical advice, diagnosis, treatment or care.
