@@ -2,4 +2,5 @@ data/*
 !data/.gitkeep
 .DS_Store
 tools/
-results/
+results/smprot_openprot_match/*.fa
+smprot_openprot_match/*.fasta
